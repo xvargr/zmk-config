@@ -24,7 +24,10 @@ manifest:
     - name: zmk-dongle-display
       remote: englmaxi
       revision: v0.3
-    - name: hammerbeam-slideshow
+    # - name: hammerbeam-slideshow
+    #   remote: gpeye
+    #   revision: main
+    - name: urchin-peripheral-animation
       remote: gpeye
       revision: main
   self:
