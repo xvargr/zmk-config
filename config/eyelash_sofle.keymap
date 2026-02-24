@@ -44,6 +44,12 @@
         tap-ms = <30>;
     };
 
+    media_encoder: media_encoder {
+        compatible = "zmk,behavior-sensor-rotate";
+        #sensor-binding-cells = <0>;
+        bindings = <&kp C_NEXT>, <&kp C_PREV>;
+    };
+
     macros {
         shift_MB3: shift_MB3 {
             compatible = "zmk,behavior-macro";
@@ -69,11 +75,11 @@
 
         layer_0 {
             bindings = <
-&kp ESC     &kp N1     &kp N2        &kp N3        &kp N4  &kp N5       &kp UP_ARROW     &kp N6     &kp N7     &kp N8         &kp N9      &kp N0     &kp BACKSPACE
-&kp TAB     &kp Q      &kp W         &kp E         &kp R   &kp T        &kp DOWN_ARROW   &kp Y      &kp U      &kp I          &kp O       &kp P      &kp BSLH
-&kp LSHFT   &kp A      &kp S         &kp D         &kp F   &kp G        &kp LEFT_ARROW   &kp H      &kp J      &kp K          &kp L       &kp SEMI   &kp APOS
-&mo 2       &kp Z      &kp X         &kp C         &kp V   &kp B        &kp RIGHT_ARROW  &kp N      &kp M      &kp COMMA      &kp DOT     &kp FSLH   &kp RIGHT_SHIFT
-&kp C_MUTE  &kp LCTRL  &kp LEFT_GUI  &kp LEFT_ALT  &mo 1   &kp SPACE    &kp ENTER        &kp SPACE  &kp ENTER  &kp BACKSPACE  &kp DELETE  &kp LCTRL
+&kp ESC     &kp N1     &kp N2        &kp N3        &kp N4  &kp N5       &kp UP_ARROW     &kp N6     &kp N7     &kp N8     &kp N9      &kp N0     &kp BACKSPACE
+&kp TAB     &kp Q      &kp W         &kp E         &kp R   &kp T        &kp DOWN_ARROW   &kp Y      &kp U      &kp I      &kp O       &kp P      &kp BSLH
+&kp LSHFT   &kp A      &kp S         &kp D         &kp F   &kp G        &kp LEFT_ARROW   &kp H      &kp J      &kp K      &kp L       &kp SEMI   &kp APOS
+&mo 2       &kp Z      &kp X         &kp C         &kp V   &kp B        &kp RIGHT_ARROW  &kp N      &kp M      &kp COMMA  &kp DOT     &kp FSLH   &kp RIGHT_SHIFT
+&kp C_MUTE  &kp LCTRL  &kp LEFT_GUI  &kp LEFT_ALT  &mo 1   &kp SPACE    &kp ENTER        &kp SPACE  &kp ENTER  &mo 2      &kp BACKSPACE  &kp DELETE
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
@@ -82,15 +88,15 @@
 
         layer_1 {
             bindings = <
-&trans      &kp F1     &kp F2     &kp F3     &kp F4     &kp F5    &mmv MOVE_UP     &kp F6            &kp F7             &kp F8          &kp F9           &kp F10           &kp F11
-&kp GRAVE   &kp TILDE  &trans     &trans     &trans     &mkp MB4  &mmv MOVE_DOWN   &trans            &trans             &kp MINUS       &kp EQUAL        &trans            &kp F12
-&kp CAPS    &trans     &mkp MCLK  &mkp LCLK  &mkp RCLK  &mkp MB5  &mmv MOVE_LEFT   &mmv MOVE_LEFT    &mmv MOVE_DOWN     &mmv MOVE_UP    &mmv MOVE_RIGHT  &kp LEFT_BRACKET  &kp RIGHT_BRACKET
-&trans      &trans     &trans     &trans     &trans     &trans    &mmv MOVE_RIGHT  &trans            &trans             &trans          &trans           &kp BSLH          &trans
-&kp C_MUTE  &trans     &trans     &trans     &trans     &trans    &mkp LCLK        &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LBRC        &kp RBRC         &trans
+&trans            &kp F1     &kp F2     &kp F3     &kp F4     &kp F5    &mmv MOVE_UP     &kp F6            &kp F7             &kp F8          &kp F9           &kp F10           &kp F11
+&kp GRAVE         &kp TILDE  &trans     &trans     &trans     &mkp MB4  &mmv MOVE_DOWN   &trans            &trans             &kp MINUS       &kp EQUAL        &trans            &kp F12
+&kp CAPS          &trans     &mkp MCLK  &mkp LCLK  &mkp RCLK  &mkp MB5  &mmv MOVE_LEFT   &mmv MOVE_LEFT    &mmv MOVE_DOWN     &mmv MOVE_UP    &mmv MOVE_RIGHT  &kp LEFT_BRACKET  &kp RIGHT_BRACKET
+&trans            &trans     &trans     &trans     &trans     &trans    &mmv MOVE_RIGHT  &trans            &trans             &trans          &trans           &kp BSLH          &trans
+&kp C_PLAY_PAUSE  &trans     &trans     &trans     &trans     &trans    &mkp LCLK        &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LBRC        &kp RBRC         &trans
             >;
 
-            sensor-bindings = <&scroll_encoder>;
-            display-name = "UPPER";
+            sensor-bindings = <&media_encoder>;
+            display-name = "LMOD";
         };
 
         layer_2 {
@@ -103,7 +109,7 @@
             >;
 
             sensor-bindings = <&scroll_encoder>;
-            display-name = "LOWER";
+            display-name = "RMOD";
         };
 
 /*         layer_3 { */
