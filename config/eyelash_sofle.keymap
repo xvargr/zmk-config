@@ -68,31 +68,38 @@
     };
 
     behaviors {
-        sk_shift: sticky_shift {
+        sk_kp: sticky_keypress {
             compatible = "zmk,behavior-sticky-key";
             #binding-cells = <1>;
+            release-after-ms = <4000>;
             quick-release;
-            release-after-ms = <3000>;
             bindings = <&kp>;
+        };
+        sk_mod: sticky_layer_mod {
+            compatible = "zmk,behavior-sticky-key";
+            #binding-cells = <1>;
+            release-after-ms = <4000>;
+            quick-release;
+            bindings = <&mo>;
         };
         lt_sticky: layer_tap_sticky {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <200>;
-            bindings = <&mo>, <&sl>;
+            bindings = <&mo>, <&sk_mod>;
         };
         td_l_brkt: tap_dance_left_brackets {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp LPAR>, <&kp LBRC>, <&kp LBKT>;
+            bindings = <&kp LBRC>, <&kp LBKT>;
         };
         td_r_brkt: tap_dance_right_brackets {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp RPAR>, <&kp RBRC>, <&kp RBKT>;
+            bindings = <&kp RBRC>, <&kp RBKT>;
         };
         td_mindash: tap_dance_minus_dash {
             compatible = "zmk,behavior-tap-dance";
@@ -115,9 +122,9 @@
         ht_shift: hold_tap_shift {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "balanced";
+            flavor = "tap-preferred";
             tapping-term-ms = <200>;
-            bindings = <&sk_shift>, <&kp>;
+            bindings = <&kp>, <&sk_kp>;
         };
     };
 
@@ -126,11 +133,11 @@
 
         layer_0 {
             bindings = <
-&kp ESC                &kp N1        &kp N2        &kp N3                 &kp N4          &kp N5       &kp UP_ARROW     &kp N6     &kp N7     &kp N8          &kp N9         &kp N0      &kp BACKSPACE
-&kp TAB                &kp Q         &kp W         &kp E                  &kp R           &kp T        &kp DOWN_ARROW   &kp Y      &kp U      &kp I           &kp O          &kp P       &kp BSLH
-&ht_shift LSHFT LSHFT  &kp A         &kp S         &kp D                  &kp F           &kp G        &kp LEFT_ARROW   &kp H      &kp J      &kp K           &kp L          &kp SEMI    &td_quot
-&kp LCTRL              &kp Z         &kp X         &kp C                  &kp V           &kp B        &kp RIGHT_ARROW  &kp N      &kp M      &kp COMMA       &kp DOT        &kp FSLH    &ht_shift RSHFT RSHFT
-&kp C_MUTE             &kp LEFT_ALT  &kp LEFT_GUI  &ht_shift LSHFT LSHFT  &lt_sticky 2 2  &kp SPACE    &kp ENTER        &kp SPACE  &kp ENTER  &lt_sticky 1 1  &kp BACKSPACE  &kp DELETE
+&kp ESC                &kp N1        &kp N2          &kp N3        &kp N4                 &kp N5     &kp UP_ARROW     &kp N6     &kp N7     &kp N8          &kp N9         &kp N0      &kp BACKSPACE
+&kp TAB                &kp Q         &kp W           &kp E         &kp R                  &kp T      &kp DOWN_ARROW   &kp Y      &kp U      &kp I           &kp O          &kp P       &kp BSLH
+&ht_shift LSHFT LSHFT  &kp A         &kp S           &kp D         &kp F                  &kp G      &kp LEFT_ARROW   &kp H      &kp J      &kp K           &kp L          &kp SEMI    &kp SQT
+&kp LCTRL              &kp Z         &kp X           &kp C         &kp V                  &kp B      &kp RIGHT_ARROW  &kp N      &kp M      &kp COMMA       &kp DOT        &kp FSLH    &ht_shift RSHFT RSHFT
+&kp C_MUTE             &kp LEFT_ALT  &lt_sticky 2 2  &kp LEFT_GUI  &ht_shift LSHFT LSHFT  &kp SPACE  &kp ENTER        &kp SPACE  &kp ENTER  &lt_sticky 1 1  &kp BACKSPACE  &kp DELETE
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
@@ -139,11 +146,11 @@
 
         layer_1 {
             bindings = <
-&rgb_ug RGB_TOG   &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3  &bt BT_SEL 4    &mmv MOVE_UP     &kp F6      &kp F7      &kp F8     &kp F9       &kp F10     &kp F11
-&rgb_ug RGB_BRI   &rgb_ug RGB_SPI  &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &out OUT_USB  &out OUT_BLE    &mmv MOVE_DOWN   &td_l_brkt  &td_r_brkt  &trans     &td_mindash  &td_pluseq  &kp F12    
-&rgb_ug RGB_BRD   &rgb_ug RGB_SPD  &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &bt BT_CLR    &bt BT_CLR_ALL  &mmv MOVE_LEFT   &kp LEFT    &kp DOWN    &kp UP     &kp RIGHT    &kp LBRC    &kp RBRC
-&rgb_ug RGB_EFF   &trans           &trans           &trans           &trans        &trans          &mmv MOVE_RIGHT  &trans      &trans      &trans     &trans       &trans      &trans
-&kp C_PLAY_PAUSE  &trans           &trans           &trans           &trans        &trans          &mkp LCLK        &trans      &trans      &trans     &trans       &trans
+&trans            &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3  &bt BT_SEL 4     &mmv MOVE_UP     &trans      &trans      &trans     &trans       &trans      &trans
+&rgb_ug RGB_BRI   &rgb_ug RGB_SPI  &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &out OUT_USB  &out OUT_BLE     &mmv MOVE_DOWN   &td_l_brkt  &td_r_brkt  &trans     &td_mindash  &td_pluseq  &trans    
+&rgb_ug RGB_BRD   &rgb_ug RGB_SPD  &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &bt BT_CLR    &bt BT_CLR_ALL   &mmv MOVE_LEFT   &kp LEFT    &kp DOWN    &kp UP     &kp RIGHT    &trans      &trans
+&rgb_ug RGB_EFF   &trans           &trans           &trans           &trans        &rgb_ug RGB_TOG  &mmv MOVE_RIGHT  &trans      &trans      &kp LT     &kp GT       &trans      &trans
+&kp C_PLAY_PAUSE  &trans           &trans           &trans           &trans        &trans           &mkp LCLK        &trans      &trans      &trans     &trans       &trans
             >;
 
             sensor-bindings = <&media_encoder>;
