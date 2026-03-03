@@ -93,13 +93,13 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp LBRC>, <&kp LBKT>;
+            bindings = <&kp LPAR>, <&kp LBRC>, <&kp LBKT>;
         };
         td_r_brkt: tap_dance_right_brackets {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp RBRC>, <&kp RBKT>;
+            bindings = <&kp RPAR>, <&kp RBRC>, <&kp RBKT>;
         };
         td_mindash: tap_dance_minus_dash {
             compatible = "zmk,behavior-tap-dance";
@@ -118,6 +118,12 @@
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp SQT>, <&kp DQT>;
+        };
+        td_bt_sel: tap_dance_bluetooth_select {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&bt BT_SEL 0>, <&bt BT_SEL 1>, <&bt BT_SEL 2>, <&bt BT_SEL 3>, <&bt BT_SEL 4>;
         };
         ht_shift: hold_tap_shift {
             compatible = "zmk,behavior-hold-tap";
@@ -146,11 +152,11 @@
 
         layer_1 {
             bindings = <
-&trans            &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3  &bt BT_SEL 4     &mmv MOVE_UP     &trans      &trans      &trans     &trans       &trans      &trans
-&rgb_ug RGB_BRI   &rgb_ug RGB_SPI  &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &out OUT_USB  &out OUT_BLE     &mmv MOVE_DOWN   &td_l_brkt  &td_r_brkt  &trans     &td_mindash  &td_pluseq  &trans    
-&rgb_ug RGB_BRD   &rgb_ug RGB_SPD  &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &bt BT_CLR    &bt BT_CLR_ALL   &mmv MOVE_LEFT   &kp LEFT    &kp DOWN    &kp UP     &kp RIGHT    &trans      &trans
-&rgb_ug RGB_EFF   &trans           &trans           &trans           &trans        &rgb_ug RGB_TOG  &mmv MOVE_RIGHT  &trans      &trans      &kp LT     &kp GT       &trans      &trans
-&kp C_PLAY_PAUSE  &trans           &trans           &trans           &trans        &trans           &mkp LCLK        &trans      &trans      &trans     &trans       &trans
+&kp TILDE         &kp EXCL     &kp AT       &kp HASH     &kp DOLLAR    &kp PERCENT   &mmv MOVE_UP     &kp CARET   &kp AMPS    &kp STAR   &td_l_brkt   &td_r_brkt  &trans
+&kp GRAVE         &trans       &trans       &trans       &trans        &trans        &mmv MOVE_DOWN   &trans      &trans      &trans     &td_mindash  &td_pluseq  &trans    
+&trans            &trans       &trans       &trans       &trans        &trans        &mmv MOVE_LEFT   &kp LEFT    &kp DOWN    &kp UP     &kp RIGHT    &trans      &trans
+&trans            &trans       &trans       &trans       &trans        &trans        &mmv MOVE_RIGHT  &trans      &trans      &kp LT     &kp GT       &trans      &trans
+&kp C_PLAY_PAUSE  &trans       &trans       &trans       &trans        &trans        &mkp LCLK        &trans      &trans      &trans     &trans       &trans
             >;
 
             sensor-bindings = <&media_encoder>;
@@ -159,11 +165,11 @@
 
         layer_2 {
             bindings = <
-&trans     &kp F1     &kp F2     &kp F3     &kp F4      &kp F5     &mmv MOVE_UP     &kp F6          &kp F7          &kp F8            &kp F9             &kp F10           &kp F11
-&kp GRAVE  &kp TILDE  &trans     &trans     &trans      &mkp MB4   &mmv MOVE_DOWN   &trans          &trans          &trans            &trans             &trans            &kp F12
-&kp CAPS   &trans     &mkp MCLK  &mkp LCLK  &mkp RCLK   &mkp MB5   &mmv MOVE_LEFT   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP      &mmv MOVE_RIGHT    &trans            &trans
-&trans     &trans     &trans     &soft_off  &bootloader &sys_reset &mmv MOVE_RIGHT  &sys_reset      &bootloader     &soft_off         &trans             &kp BSLH          &trans
-&trans     &trans     &trans     &trans     &trans      &trans     &mkp LCLK        &trans          &trans          &trans            &trans             &trans
+&trans           &kp F1           &kp F2           &kp F3           &kp F4      &kp F5     &mmv MOVE_UP     &kp F6          &kp F7          &kp F8            &kp F9             &kp F10           &kp F11
+&trans           &rgb_ug RGB_BRI  &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &trans      &trans     &mmv MOVE_DOWN   &trans          &mkp LCLK       &mkp RCLK         &trans             &trans            &kp F12
+&kp CAPS         &rgb_ug RGB_BRD  &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &trans      &trans     &mmv MOVE_LEFT   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP      &mmv MOVE_RIGHT    &trans            &trans
+&rgb_ug RGB_TOG  &out OUT_USB     &out OUT_BLE     &soft_off        &bootloader &sys_reset &mmv MOVE_RIGHT  &sys_reset      &bootloader     &soft_off         &trans             &kp BSLH          &trans
+&trans           &td_bt_sel       &trans           &trans           &trans      &trans     &mkp LCLK        &trans          &trans          &trans            &trans             &trans
             >;
 
             sensor-bindings = <&scroll_encoder>;
@@ -181,6 +187,3 @@
 /*         }; */
     };
 };
-
-
-
