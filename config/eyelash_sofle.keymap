@@ -31,7 +31,7 @@
 };
 
 &mmv {
-    time-to-max-speed-ms = <400>;
+    time-to-max-speed-ms = <800>;
     acceleration-exponent = <1>;
 };
 
@@ -152,10 +152,10 @@
 
         layer_1 {
             bindings = <
-&kp TILDE         &kp EXCL     &kp AT       &kp HASH     &kp DOLLAR    &kp PERCENT   &mmv MOVE_UP     &kp CARET   &kp AMPS    &kp STAR   &td_l_brkt   &td_r_brkt  &trans
-&kp GRAVE         &trans       &trans       &trans       &trans        &trans        &mmv MOVE_DOWN   &trans      &trans      &trans     &td_mindash  &td_pluseq  &trans    
-&trans            &trans       &trans       &trans       &trans        &trans        &mmv MOVE_LEFT   &kp LEFT    &kp DOWN    &kp UP     &kp RIGHT    &trans      &trans
-&trans            &trans       &trans       &trans       &trans        &trans        &mmv MOVE_RIGHT  &trans      &trans      &kp LT     &kp GT       &trans      &trans
+&kp TILDE         &kp EXCL     &kp AT       &kp HASH     &kp DOLLAR    &kp PERCENT   &mmv MOVE_UP     &kp CARET   &kp AMPS    &kp STAR   &td_l_brkt   &td_r_brkt  &kp DELETE
+&kp GRAVE         &trans       &trans       &trans       &trans        &trans        &mmv MOVE_DOWN   &trans      &trans      &trans     &td_mindash  &td_pluseq  &kp PIPE
+&trans            &trans       &trans       &trans       &trans        &trans        &mmv MOVE_LEFT   &kp LEFT    &kp DOWN    &kp UP     &kp RIGHT    &kp COLON   &kp DQT
+&trans            &trans       &trans       &trans       &trans        &trans        &mmv MOVE_RIGHT  &trans      &trans      &kp LT     &kp GT       &kp QMARK   &trans
 &kp C_PLAY_PAUSE  &trans       &trans       &trans       &trans        &trans        &mkp LCLK        &trans      &trans      &trans     &trans       &trans
             >;
 
