@@ -160,7 +160,7 @@
         layer_1 {
             bindings = <
 &ht_kp GRAVE TILDE  &kp EXCL     &kp AT       &kp HASH     &kp DOLLAR    &kp PERCENT   &mmv MOVE_UP     &kp CARET   &kp AMPS    &kp STAR   &ht_kp LBKT LBRC    &ht_kp RBKT RBRC   &kp DELETE
-&trans              &trans       &trans       &trans       &trans        &trans        &mmv MOVE_DOWN   &trans      &trans      &trans     &ht_kp MINUS UNDER  &ht_kp EQUAL PLUS  &kp PIPE
+&trans              &trans       &trans       &trans       &trans        &trans        &mmv MOVE_DOWN   &trans      &trans      &trans     &ht_kp MINUS UNDER  &ht_kp PLUS EQUAL  &kp PIPE
 &trans              &trans       &trans       &trans       &trans        &trans        &mmv MOVE_LEFT   &kp LEFT    &kp DOWN    &kp UP     &kp RIGHT           &kp COLON          &kp DQT
 &trans              &trans       &trans       &trans       &trans        &trans        &mmv MOVE_RIGHT  &trans      &trans      &kp LT     &kp GT              &kp QMARK          &trans
 &kp C_PLAY_PAUSE    &trans       &trans       &trans       &trans        &trans        &mkp LCLK        &trans      &trans      &trans     &trans              &trans
