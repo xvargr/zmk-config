@@ -10,10 +10,12 @@ manifest:
       url-base: https://github.com/englmaxi
     - name: gpeye
       url-base: https://github.com/GPeye
+    - name: xvargr
+      url-base: https://github.com/xvargr
   projects:
-    - name: mario-peripheral-animation
-      remote: gpeye
-      revision: main 
+    # - name: mario-peripheral-animation
+    #   remote: gpeye
+    #   revision: main
     - name: zmk
       remote: zmkfirmware
       revision: v0.3.0
@@ -27,8 +29,11 @@ manifest:
     # - name: hammerbeam-slideshow
     #   remote: gpeye
     #   revision: main
-    - name: urchin-peripheral-animation
-      remote: gpeye
+    # - name: urchin-peripheral-animation
+    #   remote: gpeye
+    #   revision: main
+    - name: nice-vibes
+      remote: xvargr
       revision: main
   self:
     path: config
