@@ -32,8 +32,12 @@ manifest:
     # - name: urchin-peripheral-animation
     #   remote: gpeye
     #   revision: main
-    - name: nice-vibes
+    # - name: nix-peripheral-left
+    #   remote: xvargr
+    #   revision: nix-left
+    - name: nix-animation
       remote: xvargr
-      revision: main
+      repo-path: nice-vibes
+      revision: nix-animation
   self:
     path: config
