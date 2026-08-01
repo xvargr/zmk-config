@@ -145,29 +145,29 @@
             tapping-term-ms = <200>;
             bindings = <&kp>, <&sk_kp>;
         };
-        td_mmvl: tap_dance_mouse_move_left {
-            compatible = "zmk,behavior-tap-dance";
+        mo_mmvl: morph_mouse_move_left {
+            compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
             bindings = <&mmv MOVE_LEFT>, <&mmv MOVE_X(-ZMK_POINTING_DEFAULT_MOVE_VAL * 3)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        td_mmvr: tap_dance_mouse_move_right {
-            compatible = "zmk,behavior-tap-dance";
+        mo_mmvr: morph_mouse_move_right {
+            compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
             bindings = <&mmv MOVE_RIGHT>, <&mmv MOVE_X(ZMK_POINTING_DEFAULT_MOVE_VAL * 3)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        td_mmvu: tap_dance_mouse_move_up {
-            compatible = "zmk,behavior-tap-dance";
+        mo_mmvu: morph_mouse_move_up {
+            compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
             bindings = <&mmv MOVE_UP>, <&mmv MOVE_Y(-ZMK_POINTING_DEFAULT_MOVE_VAL * 3)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        td_mmvd: tap_dance_mouse_move_down {
-            compatible = "zmk,behavior-tap-dance";
+        mo_mmvd: morph_mouse_move_down {
+            compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
             bindings = <&mmv MOVE_DOWN>, <&mmv MOVE_Y(ZMK_POINTING_DEFAULT_MOVE_VAL * 3)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
     };
 
@@ -204,7 +204,7 @@
             bindings = <
 &ht_kp GRAVE TILDE  &kp F1           &kp F2           &kp F3           &kp F4       &kp F5      &mmv MOVE_UP     &kp F6       &kp F7        &kp F8     &kp F9    &kp F10    &kp F11
 &trans              &rgb_ug RGB_BRI  &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &trans       &td_bt_sel  &mmv MOVE_DOWN   &trans       &trans        &trans     &trans    &trans     &kp F12
-&kp CAPS            &rgb_ug RGB_BRD  &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &trans       &bt BT_CLR  &mmv MOVE_LEFT   &td_mmvl     &td_mmvd      &td_mmvu   &td_mmvr  &mkp RCLK  &trans
+&trans              &rgb_ug RGB_BRD  &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &trans       &bt BT_CLR  &mmv MOVE_LEFT   &mo_mmvl     &mo_mmvd      &mo_mmvu   &mo_mmvr  &mkp RCLK  &trans
 &trans              &out OUT_USB     &out OUT_BLE     &soft_off        &bootloader  &sys_reset  &mmv MOVE_RIGHT  &sys_reset   &bootloader   &soft_off  &trans    &kp BSLH   &trans
 &rgb_ug RGB_TOG     &trans           &trans           &trans           &trans       &trans      &mkp LCLK        &trans       &mkp LCLK     &trans     &trans    &trans
             >;
